@@ -9,7 +9,11 @@
 #include "bootAnimation.h"
 #include "userFunctions.h"
 #include "debugConsole.h"
-//there are many reasons that I would do the following but the main one is that 
+//there are many reasons that I would do the following but the main one is that these don't need to be used anywhere else
+static int localUsrIn1[2];//int input currenly has 2 slots
+
+static string localUsrIn2[2];//string input curently has 2 slots
+
 
 void systemFunctions::commandHandler() {
 	if (!vars.usrin.compare("exit")) {
@@ -44,7 +48,13 @@ void systemFunctions::commandHandler() {
 			}
 		}
 	}
-	
+	else if (!vars.usrin.compare("color")) {
+		vars.usrin = "";
+		cin >> localUsrIn1[0];
+		cin >> localUsrIn1[1];
+		sFuncts.color(localUsrIn1[0], localUsrIn1[1]);
+
+	}
 	else if (!vars.usrin.compare("clear")) {
 		sFuncts.clrscrn();
 		sFuncts.gui();
@@ -55,5 +65,7 @@ void systemFunctions::commandHandler() {
 		cout << vars.lt << vars.pt << vars.usrin << " does not appear to be a valid command. Type \'help' to get help. " << endl;
 
 	}
-
+	//clearing all local arrays and vars
+	fill_n(localUsrIn1, 2, 0);//clears int varable and fills with zeros
+	fill_n(localUsrIn2, 2, "");//clears string varable and fills with nothing
 }
