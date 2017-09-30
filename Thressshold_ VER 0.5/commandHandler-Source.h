@@ -4,11 +4,16 @@
 #include <fstream>
 #include <windows.h>
 #include <conio.h>
+#include "Expansion.h"
 #include "variables.h"
 #include "systemFunctions.h"
 #include "bootAnimation.h"
 #include "userFunctions.h"
 #include "debugConsole.h"
+
+//dll stuff
+using namespace ExpansionPack;
+excommands excom;
 //there are many reasons that I would do the following but the main one is that these don't need to be used anywhere else
 static int localUsrIn1[2];//int input currenly has 2 slots
 
@@ -60,11 +65,15 @@ void systemFunctions::commandHandler() {
 		sFuncts.gui();
 		vars.usrin = "";
 	}
-	
+	else if (!vars.usrin.compare("ver")) {
+		cout << vars.lt << vars.pt << pname << " " << vars.sysID << " " << vars.majorVer << "." << vars.minorVer << " rev " << vars.rev << endl;
+		excom.expanVer();
+	}
 	else {
 		cout << vars.lt << vars.pt << vars.usrin << " does not appear to be a valid command. Type \'help' to get help. " << endl;
 
 	}
+
 	//clearing all local arrays and vars
 	fill_n(localUsrIn1, 2, 0);//clears int varable and fills with zeros
 	fill_n(localUsrIn2, 2, "");//clears string varable and fills with nothing

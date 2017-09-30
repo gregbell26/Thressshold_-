@@ -89,6 +89,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Current Project\Coding\C++\Thressshold_ VER 0.5\ExpandsionPack-0.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -162,6 +163,15 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="thresshold.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Icons\MAINICON - old.ico" />
+    <Image Include="Icons\MAINICON.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExpandsionPack-0.0\ExpandsionPack-0.0.vcxproj">
+      <Project>{d2cc5f41-f5b2-4764-93a3-1733c7467063}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
