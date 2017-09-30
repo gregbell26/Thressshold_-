@@ -52,7 +52,6 @@ int userFunctions::loginTOS() {
 			cout << "*";
 			ch = _getch();
 		}
-		cout << vars.temp;
 		cout << endl;
 		cout << vars.lt << vars.pt << "Checking User Info... ";
 		if (!uvars.avaiableUsers[1].compare(vars.usrin) || !uvars.avaiableUsers[2].compare(vars.usrin) || !uvars.avaiableUsers[3].compare(vars.usrin) || !uvars.avaiableUsers[4].compare(vars.usrin) || !uvars.avaiableUsers[5].compare(vars.usrin)) {
