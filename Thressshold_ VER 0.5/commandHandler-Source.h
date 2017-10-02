@@ -4,7 +4,8 @@
 #include <fstream>
 #include <windows.h>
 #include <conio.h>
-#include "Expansion.h"
+#include "Expansion.h"//this is a dll file
+
 #include "variables.h"
 #include "systemFunctions.h"
 #include "bootAnimation.h"
@@ -53,11 +54,18 @@ void systemFunctions::commandHandler() {
 			}
 		}
 	}
+
+
 	else if (!vars.usrin.compare("color")) {
 		vars.usrin = "";
 		cin >> localUsrIn1[0];
 		cin >> localUsrIn1[1];
 		sFuncts.color(localUsrIn1[0], localUsrIn1[1]);
+
+	}
+
+	else if (!vars.usrin.compare("save")) {
+		
 
 	}
 	else if (!vars.usrin.compare("clear")) {
@@ -67,6 +75,7 @@ void systemFunctions::commandHandler() {
 	}
 	else if (!vars.usrin.compare("ver")) {
 		cout << vars.lt << vars.pt << pname << " " << vars.sysID << " " << vars.majorVer << "." << vars.minorVer << " rev " << vars.rev << endl;
+		cout << vars.lt << vars.pt;
 		excom.expanVer();
 	}
 	else {

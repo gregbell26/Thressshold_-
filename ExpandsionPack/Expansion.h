@@ -6,9 +6,12 @@
 #define EXPANSION __declspec(dllimport)   
 #endif  
 //before everything you must use EXPANSION
+
 namespace ExpansionPack {
 	class excommands {
 	public:
 		static EXPANSION void expanVer();
+		static EXPANSION int commandHandler();
 	};
 }
+

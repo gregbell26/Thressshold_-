@@ -73,10 +73,7 @@ int userFunctions::firstRun() {
 			{
 				fout << value;
 				fout << endl;
-				cout << value;//debug
 			}
-			cin.get();//debug
-			cin.get();//debug
 			fout.close();
 			cout << vars.lt << vars.pt << " Ending User Generation" << endl;
 			vars.firstrun = false;

@@ -5,6 +5,11 @@ using namespace std;
 
 namespace ExpansionPack {
 	void excommands::expanVer() {
-		cout << "Expansion Pack Version 0.0 by TriHard Studios" << endl;
+		cout << "Thresshold_ Expansion Pack Version 1.0" << endl;
+	}
+
+	int excommands::commandHandler() {
+
+		return 0;
 	}
 }

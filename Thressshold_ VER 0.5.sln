@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Thressshold_ VER 0.5", "Thressshold_ VER 0.5\Thressshold_ VER 0.5.vcxproj", "{2620D1CE-EAF8-47A0-A1C0-0BA2E2201325}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExpandsionPack-0.0", "ExpandsionPack-0.0\ExpandsionPack-0.0.vcxproj", "{D2CC5F41-F5B2-4764-93A3-1733C7467063}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExpandsionPack", "ExpandsionPack\ExpandsionPack.vcxproj", "{D2CC5F41-F5B2-4764-93A3-1733C7467063}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
