@@ -153,7 +153,6 @@
     <ClInclude Include="firstRun-Source.h" />
     <ClInclude Include="GUI-Source.h" />
     <ClInclude Include="INCLUDE.h" />
-    <ClInclude Include="internCommands.h" />
     <ClInclude Include="killTOS-Source.h" />
     <ClInclude Include="loginTOS-Source.h" />
     <ClInclude Include="resource.h" />

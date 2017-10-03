@@ -19,7 +19,7 @@ excommands excom;
 static int localUsrIn1[2];//int input currenly has 2 slots
 
 static string localUsrIn2[2];//string input curently has 2 slots
-
+static bool comFound;
 
 void systemFunctions::commandHandler() {
 	if (!vars.usrin.compare("exit")) {
@@ -78,10 +78,22 @@ void systemFunctions::commandHandler() {
 		cout << vars.lt << vars.pt;
 		excom.expanVer();
 	}
-	else {
-		cout << vars.lt << vars.pt << vars.usrin << " does not appear to be a valid command. Type \'help' to get help. " << endl;
 
+	else if (comFound == false) {
+		vars.usrin = localUsrIn2[1];
+		excom.commandHandler(localUsrIn2[1]);
+		if (excom.commandHandler(localUsrIn2[1]) == false) {
+			comFound = false;
+			if (comFound == false) {
+			cout << vars.lt << vars.pt << vars.usrin << " does not appear to be a valid command. Type \'help' to get help. " << endl;
+
+			}
+		}
+		comFound = true;
 	}
+	
+
+
 
 	//clearing all local arrays and vars
 	fill_n(localUsrIn1, 2, 0);//clears int varable and fills with zeros
