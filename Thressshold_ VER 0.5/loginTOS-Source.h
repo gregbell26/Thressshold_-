@@ -14,25 +14,24 @@ int userFunctions::loginTOS() {
 	//int av = 5;//locally defined variable for the max amount of users and passwords
 	bool loginS = false;
 	int loginA = 0;
-	ifstream fin;
-	ofstream fout;
+	ifstream fin;//file input 
+	//ofstream fout;//fie output
 	char ch;
-	fin.open("TOSUsrInfo.tos");
+	fin.open("TOSUsrInfo.ths");
 	//nosense to get all the avaiable user information into memory. For debug porpose it does not leave
-
-
+	//var set 1
 	fin >> uvars.avaiableUsers[1];
 	fin >> uvars.avaiablePasswords[1];
-
+	//var set 2
 	fin >> uvars.avaiableUsers[2];
 	fin >> uvars.avaiablePasswords[2];
-	
+	//var set 3
 	fin >> uvars.avaiableUsers[3];
 	fin >> uvars.avaiablePasswords[3];
-
+	//var set 4
 	fin >> uvars.avaiableUsers[4];
 	fin >> uvars.avaiablePasswords[4];
-
+	//var set 5
 	fin >> uvars.avaiableUsers[5];
 	fin >> uvars.avaiablePasswords[5];
 	//------------------
@@ -83,10 +82,10 @@ int userFunctions::loginTOS() {
 		
 	}
 	if (loginS == true) {
-		fin.open(uvars.actUsr);
-		cin.get();//debug
+		fin.open(uvars.actUsr);//open the now active user's data file
+		//cin.get();//debug
 		if (fin.good()) {
-			cout << vars.lt << vars.pt << "User Data File Found" << endl;
+			cout << vars.lt << vars.pt << "User Data File Found" << endl;//if we find the file and it is not curruted load the data from it 
 			fin >> uvars.usrSettings[0];
 			fin >> uvars.usrSettings[1];
 			fin >> uvars.usrSettings[2];
@@ -106,7 +105,7 @@ int userFunctions::loginTOS() {
 		sFuncts.killTOS();
 	}
 
-	Sleep(1000);
+	//Sleep(500);//debug
 	
 	return 0;
 

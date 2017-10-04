@@ -21,17 +21,18 @@ int userFunctions::firstRun() {
 		ofstream fout;//command to output to a file
 		string tempUsrName = "";//so we can store the user's name for the user data generation
 		char ch;
-		char usrInYN = '\0';
+		char usrInYN = '\0';// \0 is null
+		bool passMatch = false;
 	//opening user info file
-		fout.open("TOSUsrInfo.tos", ios::app);
+		fout.open("TOSUsrInfo.ths", ios::app /*| ios::binary*/);//.ths will be file extendsion for this program
 		while (vars.firstrun == true || vars.newUser == true) {
-			fill_n(uvars.usrSettings, 5, 0);
+			fill_n(uvars.usrSettings, 5, 0);//clears the user setting array
 			sFuncts.gui();
 			cout << vars.lt << vars.pt << " Hello! Welcome to Thresshold_" << endl;
-			cout << vars.lt << vars.pt << " Please enter the user name you'd like to use:";
-			cin >> vars.temp;
+			cout << vars.lt << vars.pt << " Please enter the user name you'd like to use: ";
+			cin >> vars.temp;//inputs user name in temp
 			fout << vars.temp << endl;;
-			tempUsrName = vars.temp;
+			tempUsrName = vars.temp;//stores user name 
 			vars.temp = "";
 			fout.flush();
 			cout << vars.lt << vars.pt << " User name written to file successfully" << endl;
@@ -43,8 +44,24 @@ int userFunctions::firstRun() {
 				ch = _getch();
 			}
 			cout << endl;
-			cout << endl;
-
+			while (passMatch == false) {
+				cout << vars.lt << vars.pt << " Please enter your password again: ";
+				ch = _getch();
+				while (ch != 13) {
+					vars.usrin.push_back(ch);// inputs password in to usrin to we can check if matches the other password
+					cout << "*";
+					ch = _getch();
+				}
+				cout << endl;
+				if (!vars.temp.compare(vars.usrin)) {
+					passMatch = true;
+				}
+				else {
+					cout << vars.lt << vars.pt << " Your password did not match. Lets try again" << endl;
+				}
+				vars.usrin = "";
+			}
+			cout << vars.lt << vars.pt << " Passwords match. Writing to file.." << endl;
 			fout << vars.temp;
 			fout.flush();
 			cout << vars.lt << vars.pt << " Password written to file successfully" << endl;
@@ -53,7 +70,7 @@ int userFunctions::firstRun() {
 			fout << endl;
 			fout.close();
 			cout << vars.lt << vars.pt << " Begining Generation of User Data File..." << endl << endl;
-			fout.open(tempUsrName);
+			fout.open(tempUsrName);//this will create a user data file with the users name 
 			cout << vars.lt << vars.pt << " Is this a developer account? (y/n): ";
 			cin >> usrInYN;
 			if (usrInYN == 'y' || usrInYN == 'Y') {

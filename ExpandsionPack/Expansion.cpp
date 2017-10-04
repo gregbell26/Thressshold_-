@@ -1,5 +1,5 @@
 #include "Expansion.h"
-#include <MatrixDLL.h>
+#include <MatrixDLL.h>//this is a dll
 #include <iostream>
 #include <string>
 using namespace std;
@@ -16,7 +16,7 @@ namespace ExpansionPack {
 			matrix.matrixRun();
 		}
 		else {
-			return (false);
+			cout << '|' << char(219) << userInput << " does not appear to be a valid command. Type \'help' to get help. " << endl;
 		}
 		return('\0');
 	}

@@ -7,11 +7,11 @@
 #endif  
 //before everything you must use EXPANSION
 using namespace std;
-namespace ExpansionPack {
+namespace ExpansionPack {//any functions you add here will not have an impact on the funcaity of this program.
 	class excommands {
 	public:
-		static EXPANSION void expanVer();
-		static EXPANSION int commandHandler(string userInput);
+		static EXPANSION void expanVer();//This has to be kept and updated perotically
+		static EXPANSION int commandHandler(string userInput);//so does this but feel free to edit it in the cpp file
 	};
 }
 

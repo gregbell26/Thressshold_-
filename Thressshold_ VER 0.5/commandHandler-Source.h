@@ -4,33 +4,36 @@
 #include <fstream>
 #include <windows.h>
 #include <conio.h>
-#include "Expansion.h"//this is a dll file
-
+//.h files
 #include "variables.h"
 #include "systemFunctions.h"
 #include "bootAnimation.h"
 #include "userFunctions.h"
 #include "debugConsole.h"
-
+//dll .h files
+#include <Expansion.h>//this is a dll file
 //dll stuff
-using namespace ExpansionPack;
-excommands excom;
+ExpansionPack::excommands excom;//this puts a namespace and a class name to a ne
 //there are many reasons that I would do the following but the main one is that these don't need to be used anywhere else
 static int localUsrIn1[2];//int input currenly has 2 slots
 
-static string localUsrIn2[2];//string input curently has 2 slots
+static string localUsrIn2[2] = {"", ""};//string input curently has 2 slots
 static bool comFound;
 
 void systemFunctions::commandHandler() {
 	if (!vars.usrin.compare("exit")) {
+
 		sFuncts.killTOS();
 	}
 
-	else if (!vars.usrin.compare("newUser")) {// isnt working right
+	else if (!vars.usrin.compare("newUser")) {
 		vars.usrin = "";
 		cout << vars.lt << vars.pt << "Loading first run....";
 		vars.newUser = true;
 		uFuncts.firstRun();
+		//logs out the current user
+		uvars.actUsr = "";
+		uvars.actUsrPasswd = "";
 	}
 
 	//debug stuff bellow_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
@@ -38,7 +41,12 @@ void systemFunctions::commandHandler() {
 		vars.usrin = "";
 		if (uvars.usrSettings[0] == 0) {//if the user is NOT a developer run this
 			cout << vars.lt << vars.pt << "Welcome to Debug Mode. Your account does not appear to be a developer account. We are sending you to the log in screen...";
+			//logs out current user
+			cout << vars.lt << vars.pt << "Press any key to log out" << endl;
+			uvars.actUsr = "";
+			uvars.actUsrPasswd = "";
 			sFuncts.clrscrn();
+			//sends you to the login page
 			uFuncts.loginTOS();
 		}
 		else if (uvars.usrSettings[0] == 1) {
@@ -58,7 +66,9 @@ void systemFunctions::commandHandler() {
 
 	else if (!vars.usrin.compare("color")) {
 		vars.usrin = "";
-		cin >> localUsrIn1[0];
+		//cin >> localUsrIn1[0];
+		cout << " 0 ";//we really should not have the user any thing as the only valid input is 0 for the first slot
+		localUsrIn1[0] = 0;//sets the userinput to zero
 		cin >> localUsrIn1[1];
 		sFuncts.color(localUsrIn1[0], localUsrIn1[1]);
 
@@ -79,19 +89,10 @@ void systemFunctions::commandHandler() {
 		excom.expanVer();
 	}
 
-	else if (comFound == false) {
-		vars.usrin = localUsrIn2[1];
-		excom.commandHandler(localUsrIn2[1]);
-		if (excom.commandHandler(localUsrIn2[1]) == false) {
-			comFound = false;
-			if (comFound == false) {
-			cout << vars.lt << vars.pt << vars.usrin << " does not appear to be a valid command. Type \'help' to get help. " << endl;
-
-			}
-		}
-		comFound = true;
+	else {
+		vars.usrin = localUsrIn2[0];
+		excom.commandHandler(localUsrIn2[0]);
 	}
-	
 
 
 
