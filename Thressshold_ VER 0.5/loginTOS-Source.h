@@ -17,6 +17,8 @@ int userFunctions::loginTOS() {
 	ifstream fin;//file input 
 	//ofstream fout;//fie output
 	char ch;
+	//end of local defination
+	SetCurrentDirectory(L"Users");
 	fin.open("TOSUsrInfo.ths");
 	//nosense to get all the avaiable user information into memory. For debug porpose it does not leave
 	//var set 1
@@ -82,6 +84,7 @@ int userFunctions::loginTOS() {
 		
 	}
 	if (loginS == true) {
+		
 		fin.open(uvars.actUsr);//open the now active user's data file
 		//cin.get();//debug
 		if (fin.good()) {

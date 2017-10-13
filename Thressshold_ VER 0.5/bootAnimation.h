@@ -26,7 +26,7 @@ int tosVer() {
 }
 
 void firstRunChecker() {
-	ifstream fin("TOSUsrInfo.tos");
+	ifstream fin(".\\Users\\TOSUsrInfo.ths");
 
 	if (fin.good()) {
 		fout << "INFORMATION: User Data Found." << endl;

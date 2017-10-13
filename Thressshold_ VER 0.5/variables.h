@@ -30,7 +30,7 @@ public:
 	char lt = '|';// for intput stuff 
 				  //lt MUST go before pt
 				//These are to make sure that everything is spaced corectly 
-	string curDir = "";
+	//wstring curDir[] = { L"" };
 };
 
 class aVariables {//don't use until STUFF :)

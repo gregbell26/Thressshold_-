@@ -23,6 +23,9 @@ int userFunctions::firstRun() {
 		char ch;
 		char usrInYN = '\0';// \0 is null
 		bool passMatch = false;
+		//end of local var defination
+		CreateDirectory(L"Users", NULL);//Creating the subfolder for user stuff
+		SetCurrentDirectory(L"Users");//seting the current dir
 	//opening user info file
 		fout.open("TOSUsrInfo.ths", ios::app /*| ios::binary*/);//.ths will be file extendsion for this program
 		while (vars.firstrun == true || vars.newUser == true) {
