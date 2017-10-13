@@ -1,10 +1,9 @@
 #include "Expansion.h"
-#include <MatrixDLL.h>//this is a dll
+#include <Windows.h>
 #include <iostream>
 #include <string>
 using namespace std;
 
-Matrix::Matrix matrix;//class defination. the first thing is the namespace then the next thing is the class name
 
 namespace ExpansionPack {
 	void excommands::expanVer() {
@@ -12,9 +11,13 @@ namespace ExpansionPack {
 	}
 
 	int excommands::commandHandler(string userInput) {
-		if (!userInput.compare("Matrix")) {
-			matrix.matrixRun();
+		if (!userInput.compare("matrix")) {
+			typedef int(*EXFUNCTIONmartixRun)();//this is creating a function pointer to the DLL
+			HINSTANCE DLLLOAD = LoadLibrary("TheMatrixDLL.dll");
+
+
 		}
+
 		else {
 			cout << '|' << char(219) << userInput << " does not appear to be a valid command. Type \'help' to get help. " << endl;
 		}
