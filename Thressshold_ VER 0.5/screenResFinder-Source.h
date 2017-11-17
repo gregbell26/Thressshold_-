@@ -17,7 +17,7 @@ void systemFunctions::screenResFinder() {//I didn't write this code. I combined 
 
 	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
 	vars.cols = csbi.srWindow.Right - csbi.srWindow.Left + 1;
-	vars.rows = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
+	vars.rows = csbi.srWindow.Bottom - csbi.srWindow.Top + 2;
 
 	SMALL_RECT rect;
 	COORD coord;

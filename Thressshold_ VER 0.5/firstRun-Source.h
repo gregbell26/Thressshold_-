@@ -27,7 +27,7 @@ int userFunctions::firstRun() {
 		CreateDirectory(L"Users", NULL);//Creating the subfolder for user stuff
 		SetCurrentDirectory(L"Users");//seting the current dir
 	//opening user info file
-		fout.open("TOSUsrInfo.ths", ios::app /*| ios::binary*/);//.ths will be file extendsion for this program
+		fout.open("TOSUsrInfo.ths", ios::app /*| ios::binary*/);//.ths will be file extendsion for this program Also ios app places the writer at the end of the file. 
 		while (vars.firstrun == true || vars.newUser == true) {
 			fill_n(uvars.usrSettings, 5, 0);//clears the user setting array
 			sFuncts.gui();

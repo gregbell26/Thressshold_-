@@ -22,22 +22,25 @@ namespace ExpansionPack {
 			cin.get();
 			cin.get();
 			EXFUNCTIONmartixRun FunctAddress;//this is making the pointer from funtion pointer that we made before
-			exFunctLibLoad = LoadLibrary(L"External\\TriHardStudios\\Matrix.dll");
-			cout << "Loaded Libary" << endl;
-			cin.get();
-			
-			if (!exFunctLibLoad) {
-				cout << '|' << char(219)  << "Failed to load DLL" << endl;
-			
-			}
-			else {
-				cout << '|' << char(219) << "Loaded DLL.." << endl;
+			//try {
+				exFunctLibLoad = LoadLibrary(L"External\\TriHardStudios\\Matrix.dll");
+				cout << "Loaded Libary" << endl;
 				cin.get();
-				FunctAddress = (EXFUNCTIONmartixRun)GetProcAddress(exFunctLibLoad, "matrixRun");
-				cout << "about to call function" << endl;
-				cin.get();
-				cout << FunctAddress();
-			}
+
+				if (!exFunctLibLoad) {
+					cout << '|' << char(219) << "Failed to load DLL" << endl;
+
+				}
+				else {
+					cout << '|' << char(219) << "Loaded DLL.." << endl;
+					cin.get();
+					FunctAddress = (EXFUNCTIONmartixRun)GetProcAddress(exFunctLibLoad, "matrixRun");
+					cout << "about to call function" << endl;
+					cin.get();
+					FunctAddress();
+				}
+			//}
+
 
 		}
 
