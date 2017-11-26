@@ -1,11 +1,11 @@
 #include "INCLUDE.h"
-
+#include "User.h"
 
 /*
 Current issues:
-new user is not working 
+we are using one master class.. WTF lets fix that. 
 Possaiable fixes:
-Who Knows Lets just pray!
+
 
 
 
@@ -20,30 +20,37 @@ Who Knows Lets just pray!
 
 
 int main(void) {
+	
+
+	//local vars
+	string usrIn;
+	//eof local vars
+
 	bootAnimation();
+
 	//vars.firstrun = true;s
 	//vars.ready = true;
-	while (vars.ready = true) {
-		if (vars.firstrun == true) {
+	while (vars.ready) {
+		if (User.firstRunVar) {
 
-			uFuncts.firstRun();
+			User.firstRun();
 			sFuncts.clrscrn();
 		}
-		else if (vars.ready == true) {
+		else if (vars.ready) {
 			sFuncts.clrscrn();
 			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
 				defaultMain);
 			sFuncts.clrscrn();
-			uFuncts.loginTOS();
+			User.logOn();
 			sFuncts.clrscrn();
 			sFuncts.clrscrn();
 			sFuncts.gui();
-			while (vars.sysActive == true) {
-				cout << vars.lt << vars.pt  << uvars.actUsr <<  "@Thresshold_~";
-				cin >> vars.usrin;
+			while (vars.sysActive) {
+				cout << vars.lt << vars.pt  << User.getActiveUser() <<  "@Thresshold_~";
+				cin >> usrIn;
 				cout << endl;
-				sFuncts.commandHandler();
-				vars.usrin = "";
+				sFuncts.commandHandler(usrIn);
+				usrIn = "";
 			}
 
 

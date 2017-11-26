@@ -13,10 +13,12 @@
 
 int userFunctions::firstRun() {
 
-	if (vars.firstrun == true || vars.newUser == true) {
+	if (vars.firstrun|| vars.newUser) {
 		sFuncts.clrscrn();//clears screen
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), loginColors);//should set colors
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), loginColors);//sets colors
 		sFuncts.clrscrn();//clears screen
+
+
 		//local varables
 		ofstream fout;//command to output to a file
 		string tempUsrName = "";//so we can store the user's name for the user data generation
@@ -24,11 +26,12 @@ int userFunctions::firstRun() {
 		char usrInYN = '\0';// \0 is null
 		bool passMatch = false;
 		//end of local var defination
+
 		CreateDirectory(L"Users", NULL);//Creating the subfolder for user stuff
 		SetCurrentDirectory(L"Users");//seting the current dir
 	//opening user info file
 		fout.open("TOSUsrInfo.ths", ios::app /*| ios::binary*/);//.ths will be file extendsion for this program Also ios app places the writer at the end of the file. 
-		while (vars.firstrun == true || vars.newUser == true) {
+		while (vars.firstrun|| vars.newUser) {
 			fill_n(uvars.usrSettings, 5, 0);//clears the user setting array
 			sFuncts.gui();
 			cout << vars.lt << vars.pt << " Hello! Welcome to Thresshold_" << endl;
@@ -47,7 +50,7 @@ int userFunctions::firstRun() {
 				ch = _getch();
 			}
 			cout << endl;
-			while (passMatch == false) {
+			while (!passMatch) {
 				cout << vars.lt << vars.pt << " Please enter your password again: ";
 				ch = _getch();
 				while (ch != 13) {

@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bootAnimation.h" />
@@ -151,15 +152,14 @@
     <ClInclude Include="color-Source.h" />
     <ClInclude Include="commandHandler-Source.h" />
     <ClInclude Include="debugConsole.h" />
-    <ClInclude Include="firstRun-Source.h" />
     <ClInclude Include="GUI-Source.h" />
     <ClInclude Include="INCLUDE.h" />
     <ClInclude Include="killTOS-Source.h" />
-    <ClInclude Include="loginTOS-Source.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="restartTOS-Source.h" />
     <ClInclude Include="screenResFinder-Source.h" />
     <ClInclude Include="systemFunctions.h" />
+    <ClInclude Include="User.h" />
     <ClInclude Include="userFunctions.h" />
     <ClInclude Include="variables.h" />
   </ItemGroup>

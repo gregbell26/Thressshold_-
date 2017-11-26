@@ -9,6 +9,11 @@
 #include "bootAnimation.h"
 #include "userFunctions.h"
 #include "debugConsole.h"
+/*
+*This is a mess. 
+*
+*/
+
 using namespace std;
 int debugConsole(){
 	bool active = false;

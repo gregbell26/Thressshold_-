@@ -58,8 +58,8 @@ public:
 	string avaiableUsers[5] = { "","","","","" };
 	string avaiablePasswords[5] = { "","","","","" };
 };
-aVariables avar;
-dVariables dvars;
-sVariables vars;
-uVariables uvars;
+static aVariables avar;
+static dVariables dvars;
+static sVariables vars;
+static uVariables uvars;
 

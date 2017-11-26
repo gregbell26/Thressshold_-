@@ -2,12 +2,12 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-
+#include "INCLUDE.h"
 #include <windows.h>
 #include <conio.h>
 #include "variables.h"
 #include "systemFunctions.h"
-
+#include "User.h"
 using namespace std;
 
 ofstream fout;
@@ -26,18 +26,17 @@ int tosVer() {
 }
 
 void firstRunChecker() {
-	ifstream fin(".\\Users\\TOSUsrInfo.ths");
 
-	if (fin.good()) {
-		fout << "INFORMATION: User Data Found." << endl;
-		vars.firstrun = false;
+	if (User.firstRunVar) {
+		fout << "WARNING: No User Data Found, Thresshold_ is setting up firstrun" << endl;
+
 	}
 
 	else {
-		fout << "WARNING: No User Data Found, Thresshold_ is setting up firstrun" << endl;
-		vars.firstrun = true;
+		fout << "INFORMATION: User Data Found." << endl;
+		
+
 	}
-	fin.close();
 }
 
 void bootAnimation() {

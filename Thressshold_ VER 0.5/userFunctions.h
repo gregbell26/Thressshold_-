@@ -2,16 +2,18 @@
 
 using namespace std;
 
+extern "C" {
+	class userFunctions {
+	public:
+		int loginTOS();
 
-class userFunctions {
-public:
-	int loginTOS();
+		int firstRun();
 
-	int firstRun();
+		int logout();
 
-
- };
+	};
+}
 
 
-/*extern*/ userFunctions uFuncts;
+userFunctions uFuncts;
 

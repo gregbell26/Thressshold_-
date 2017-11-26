@@ -22,13 +22,16 @@
     <Filter Include="System Functions">
       <UniqueIdentifier>{27d35d33-fec4-4d59-9144-bcc1577c1af4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="User Functions">
+    <Filter Include="User">
       <UniqueIdentifier>{083777c5-c2f0-41bc-824f-5af46a6b253d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Important</Filter>
+    </ClCompile>
+    <ClCompile Include="User.cpp">
+      <Filter>User</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -62,14 +65,8 @@
     <ClInclude Include="clrscrn-Source.h">
       <Filter>System Functions</Filter>
     </ClInclude>
-    <ClInclude Include="firstRun-Source.h">
-      <Filter>User Functions</Filter>
-    </ClInclude>
     <ClInclude Include="GUI-Source.h">
       <Filter>System Functions</Filter>
-    </ClInclude>
-    <ClInclude Include="loginTOS-Source.h">
-      <Filter>User Functions</Filter>
     </ClInclude>
     <ClInclude Include="restartTOS-Source.h">
       <Filter>System Functions</Filter>
@@ -82,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="color-Source.h">
       <Filter>System Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="User.h">
+      <Filter>User</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -5,7 +5,7 @@
 using namespace std;
 
 //start of funtsion defiations
-typedef int(_stdcall *EXFUNCTIONmartixRun)();//this is creating a function pointer to the DLL you can add more for each DLL you use. Just put EXFUNCTION first 
+typedef int(CALLBACK *EXFUNCTIONmartixRun)();//this is creating a function pointer to the DLL you can add more for each DLL you use. Just put EXFUNCTION first 
 //end of function definations
 
 HINSTANCE exFunctLibLoad;//this is the thing we use to load the funtion
@@ -14,8 +14,8 @@ namespace ExpansionPack {
 		cout << "Thresshold_ Expansion Pack Version 0.0.0.0.0.0.1" << endl;
 	}
 
-	int excommands::commandHandler(string userInput) {
-		userInput = "matrix";
+	bool excommands::commandHandler(string userInput) {
+		//userInput = "matrix";
 		
 		if (!userInput.compare("matrix")) {
 			cout << "Entered If statemnt" << endl;
@@ -41,12 +41,12 @@ namespace ExpansionPack {
 				}
 			//}
 
-
+				return true;
 		}
 
 		else {
-			cout << '|' << char(219) << userInput << " does not appear to be a valid command. Type \'help' to get help. " << endl;
+			return false;
 		}
-		return('\0');
+		
 	}
 }

@@ -22,10 +22,11 @@ public:
 
 	int restartTOS();
 
-	void commandHandler();
+	void commandHandler(string usrIn);
 	
 	void color(int text, int back);
+
 };
 
 
-systemFunctions sFuncts;//we should be using external vars so I don't have to inlcude the master variable everytime. But it throws a shit ton of errors. So... yeah
+static systemFunctions sFuncts;//we should be using external vars so I don't have to inlcude the master variable everytime. But it throws a shit ton of errors. So... yeah
