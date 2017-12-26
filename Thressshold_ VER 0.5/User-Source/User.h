@@ -5,6 +5,7 @@
 #include <fstream>
 #include <windows.h>
 #include <conio.h>
+#include "./SystemFunctsUser.h"
 namespace Users {
 	class User {
 	private:
@@ -12,15 +13,16 @@ namespace Users {
 		//these are all the variables requieed to log on, use, and log off users
 		std::vector<std::string> aviUsers;
 		std::vector<std::string> aviPasswords;
-		std::vector<int> userData;//default size 5 is defined in constor
-		std::vector<int> userPrefences;
+		int userData[5];//default size 5 is defined in constor
+		std::vector<int>userPrefences;
 		std::string activeUser;
 		std::string activePassword;
 
 
+
 	public:
 		bool firstRunVar = true;
-
+		bool newUserVar = false;
 		User(); 
 
 		std::string toOutput(std::string oldName);

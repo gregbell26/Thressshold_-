@@ -143,7 +143,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="User.cpp" />
+    <ClCompile Include="User-Source\SystemFunctsUser.cpp" />
+    <ClCompile Include="User-Source\User.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bootAnimation.h" />
@@ -159,7 +160,8 @@
     <ClInclude Include="restartTOS-Source.h" />
     <ClInclude Include="screenResFinder-Source.h" />
     <ClInclude Include="systemFunctions.h" />
-    <ClInclude Include="User.h" />
+    <ClInclude Include="User-Source\SystemFunctsUser.h" />
+    <ClInclude Include="User-Source\User.h" />
     <ClInclude Include="userFunctions.h" />
     <ClInclude Include="variables.h" />
   </ItemGroup>

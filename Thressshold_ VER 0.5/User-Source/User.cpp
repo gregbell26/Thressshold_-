@@ -1,15 +1,11 @@
-#include "User.h"
-#include <string>
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <windows.h>
-#include <conio.h>
-#include "variables.h"
-#include "systemFunctions.h"
-using namespace Users;
-using namespace std;
+#include "./User.h"
+#include "./SystemFunctsUser.h"
 
+using namespace Users;
+
+using namespace std;
+#define loginColors BACKGROUND_GREEN| FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY
+SystemFuncts::SystemFunctsUser sysFunctU;
 
 /*
 The default construtor will load the available users into memory
@@ -60,10 +56,10 @@ std::string Users::User::getActivePassword()
 }
 
 int User::firstRun() {
-	if (firstRunVar || vars.newUser) {
-		sFuncts.clrscrn();//clears screen
+	if (firstRunVar || newUserVar) {
+		sysFunctU.clrscrn();//clears screen
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), loginColors);//sets colors
-		sFuncts.clrscrn();//clears screen
+		sysFunctU.clrscrn();//clears screen
 
 
 						  //local varables
@@ -75,25 +71,24 @@ int User::firstRun() {
 		string temp;
 		string usrin;
 		//end of local var defination
-
-		CreateDirectory(L"Users", NULL);//Creating the subfolder for user stuff
-		SetCurrentDirectory(L"Users");//seting the current dir
-									  //opening user info file
+		if (firstRunVar) {
+			CreateDirectory(L"Users", NULL);//Creating the subfolder for user stuff
+			SetCurrentDirectory(L"Users");//seting the current dir
+		}		  //opening user info file
 		fout.open("Users.ths", ios::app /*| ios::binary*/);//.ths will be file extendsion for this program Also ios app places the writer at the end of the file. 
-		while (firstRunVar || vars.newUser) {
+		while (firstRunVar || newUserVar) {
 			//fill_n(uvars.usrSettings, 5, 0);//clears the user setting array
-			userData.erase(userData.begin(), userData.end());//clears user data
+			fill_n(userData, 5, 0);//clears user data
 
-			sFuncts.gui();
-			cout << vars.lt << vars.pt << " Hello! Welcome to Thresshold_" << endl;
-			cout << vars.lt << vars.pt << " Please enter the user name you'd like to use: ";
+			cout << '|' << char(219) << " Hello! Welcome to Thresshold_" << endl;
+			cout << '|' << char(219) << " Please enter the user name you'd like to use: ";
 			cin >> temp;//inputs user name in temp
 			fout << temp << endl;
 			tempUsrName = temp;//stores user name 
 			temp = "";
 			fout.flush();//writes to file
-			cout << vars.lt << vars.pt << " User name written to file successfully" << endl;
-			cout << vars.lt << vars.pt << " Please enter the password you'd like to use: ";
+			cout << '|' << char(219) << " User name written to file successfully" << endl;
+			cout << '|' << char(219) << " Please enter the password you'd like to use: ";
 			ch = _getch();
 			while (ch != 13) {
 				temp.push_back(ch);// inputs password in to temp
@@ -102,7 +97,7 @@ int User::firstRun() {
 			}
 			cout << endl;
 			while (!passMatch) {
-				cout << vars.lt << vars.pt << " Please enter your password again: ";
+				cout << '|' << char(219) << " Please enter your password again: ";
 				ch = _getch();
 				while (ch != 13) {
 					usrin.push_back(ch);// inputs password in to usrin to we can check if matches the other password
@@ -114,50 +109,49 @@ int User::firstRun() {
 					passMatch = true;
 				}
 				else {
-					cout << vars.lt << vars.pt << " Your password did not match. Lets try again" << endl;
+					cout << '|' << char(219) << " Your password did not match. Lets try again" << endl;
 				}
 				usrin = "";
 			}
-			cout << vars.lt << vars.pt << " Passwords match. Writing to file.." << endl;
+			cout << '|' << char(219) << " Passwords match. Writing to file.." << endl;
 			fout << temp;
 			fout.flush();
 
 
-			cout << vars.lt << vars.pt << " Password written to file successfully" << endl;
+			cout << '|' << char(219) << " Password written to file successfully" << endl;
 			Sleep(100);
-			cout << vars.lt << vars.pt << " Closing File....." << endl;
+			cout << '|' << char(219) << " Closing File....." << endl;
 			fout << endl;
 			fout.close();
-			cout << vars.lt << vars.pt << " Begining Generation of User Data File..." << endl << endl;
+			cout << '|' << char(219) << " Begining Generation of User Data File..." << endl << endl;
 
 			fout.open(toOutput(tempUsrName));//this will create a user data file with the users name 
-			cout << vars.lt << vars.pt << " Is this a developer account? (y/n): ";
+			cout << '|' << char(219) << " Is this a developer account? (y/n): ";
 			cin >> usrInYN;
 			if (usrInYN == 'y' || usrInYN == 'Y') {
-				userData.push_back(1);
+				userData[0] = 1;
 			}
 			usrInYN = '\0';
 			cout << endl;
-			cout << vars.lt << vars.pt << " Should this account be admin? (y/n): ";
+			cout << '|' << char(219) << " Should this account be admin? (y/n): ";
 			cin >> usrInYN;
 			if (usrInYN == 'y' || usrInYN == 'Y') {
-				userData.push_back(1);
+				userData[1] = 1;
 			}
 			usrInYN = '\0';
 			cout << endl;
-			cout << vars.lt << vars.pt << " Writting user data to file..." << endl;
-			for (int i = 0; i < userData.size(); i++) {
+			cout << '|' << char(219) << " Writting user data to file..." << endl;
+			for (int i = 0; i < 4; i++) {
 				fout << userData[i];
 				fout << endl;
 			}
 			fout.close();
-			cout << vars.lt << vars.pt << " Ending User Generation" << endl;
+			cout << '|' << char(219) << " Ending User Generation" << endl;
 			firstRunVar = false;
-			vars.newUser = false;
-			vars.ready = true;
+			newUserVar = false;
 			Sleep(100);
 
-			/*cout << vars.lt << vars.pt << "Resarting........" << endl;
+			/*cout << '|' << char(219) << "Resarting........" << endl;
 			Sleep(1000);
 			sFuncts.restartTOS();*/
 
@@ -196,15 +190,15 @@ void User::logOn() {
 		}
 		
 		fin.close();
-		sFuncts.gui();
+		sysFunctU.drawGUI();
 
-		while (loginS == false && loginA <= 5) {
+		while (!loginS  && loginA <= 5) {
 			cout << endl;
-			cout << vars.lt << vars.pt << "Please Login" << endl;
-			cout << vars.lt << vars.pt << "Enter User Name: ";
+			cout << '|' << char(219) << "Please Login" << endl;
+			cout << '|' << char(219) << "Enter User Name: ";
 			cin >> usrIn;
 			cout << endl;
-			cout << vars.lt << vars.pt << "Enter Password for the User " << usrIn << ": ";
+			cout << '|' << char(219) << "Enter Password for the User " << usrIn << ": ";
 			//cin >> temp;
 			ch = _getch();
 			while (ch != 13) {
@@ -213,7 +207,7 @@ void User::logOn() {
 				ch = _getch();
 			}
 			cout << endl;
-			cout << vars.lt << vars.pt << "Checking User Info... ";
+			cout << '|' << char(219) << "Checking User Info... ";
 			for (int i = 0; i < aviUsers.size(); i++) {
 				if (!aviUsers[i].compare(usrIn)) {
 					userMatch = true;
@@ -237,14 +231,13 @@ void User::logOn() {
 				}
 				if (passMatch) {
 					cout << " | Password - Valid" << endl;
-					cout << vars.lt << vars.pt << "Welcome to Thresshold_ " << endl;
+					cout << '|' << char(219) << "Welcome to Thresshold_ " << endl;
 					activeUser = usrIn;
 
 					usrIn = "";//clar userin var
 					activePassword = temp;
 					temp = "";//clear temp var
 					loginS = true;
-					vars.sysActive = true;
 
 				}
 				else {
@@ -266,24 +259,24 @@ void User::logOn() {
 			fin.open(toOutput(activeUser));//open the now active user's data file
 								   //cin.get();//debug
 			if (fin.good()) {
-				cout << vars.lt << vars.pt << "User Data File Found" << endl;//if we find the file and it is not curruted load the data from it 
-				int tempData;
-				while (fin >> tempData) {
-					userData.push_back(tempData);
+				cout << '|' << char(219) << "User Data File Found" << endl;//if we find the file and it is not curruted load the data from it 
+				//int tempData;
+				for (int i = 0; i < 5; i++){
+					fin >> userData[i];
 				}
 
 			}
 			else {
-				cout << vars.lt << vars.pt << "We could not find that user's data file. Login Halted. " << endl;
-				cout << vars.lt << vars.pt << "Press any key to quit Thresshold_" << endl;
+				cout << '|' << char(219) << "We could not find that user's data file. Login Halted. " << endl;
+				cout << '|' << char(219) << "Press any key to quit Thresshold_" << endl;
 				cin.get();
-				sFuncts.killTOS();
+				sysFunctU.shutdown();
 			}
 
 		}
 
 		else if (loginA > 5) {
-			sFuncts.killTOS();
+			sysFunctU.shutdown();
 		}
 
 		//Sleep(500);//debug
@@ -294,8 +287,8 @@ void User::logOn() {
 void User::logOff() {
 	activeUser = "\0";
 	activePassword = "\0";
-	sFuncts.clrscrn();
-	logOn();
+	sysFunctU.clrscrn();
+	//logOn();
 }
 
 bool Users::User::isDev() {

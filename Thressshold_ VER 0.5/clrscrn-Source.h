@@ -4,11 +4,11 @@
 #include <fstream>
 #include <windows.h>
 #include <conio.h>
-#include "variables.h"
+//#include "variables.h"
 #include "systemFunctions.h"
-#include "bootAnimation.h"
-#include "userFunctions.h"
-#include "debugConsole.h"
+//#include "bootAnimation.h"
+//#include "userFunctions.h"
+//#include "debugConsole.h"
 
 
 void systemFunctions::clrscrn() {//I did not write most of this. But I know How it works, It NEEDS to have windows.h to work correctly

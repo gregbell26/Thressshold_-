@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
@@ -24,13 +20,17 @@
     </Filter>
     <Filter Include="User">
       <UniqueIdentifier>{083777c5-c2f0-41bc-824f-5af46a6b253d}</UniqueIdentifier>
+      <Extensions>User.*</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Important</Filter>
     </ClCompile>
-    <ClCompile Include="User.cpp">
+    <ClCompile Include="User-Source\User.cpp">
+      <Filter>User</Filter>
+    </ClCompile>
+    <ClCompile Include="User-Source\SystemFunctsUser.cpp">
       <Filter>User</Filter>
     </ClCompile>
   </ItemGroup>
@@ -80,7 +80,10 @@
     <ClInclude Include="color-Source.h">
       <Filter>System Functions</Filter>
     </ClInclude>
-    <ClInclude Include="User.h">
+    <ClInclude Include="User-Source\User.h">
+      <Filter>User</Filter>
+    </ClInclude>
+    <ClInclude Include="User-Source\SystemFunctsUser.h">
       <Filter>User</Filter>
     </ClInclude>
   </ItemGroup>

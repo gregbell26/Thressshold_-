@@ -1,5 +1,5 @@
 #include "INCLUDE.h"
-#include "User.h"
+
 
 /*
 Current issues:
@@ -30,13 +30,12 @@ int main(void) {
 
 	//vars.firstrun = true;s
 	//vars.ready = true;
-	while (vars.ready) {
 		if (User.firstRunVar) {
 
 			User.firstRun();
 			sFuncts.clrscrn();
 		}
-		else if (vars.ready) {
+
 			sFuncts.clrscrn();
 			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),
 				defaultMain);
@@ -53,9 +52,6 @@ int main(void) {
 				usrIn = "";
 			}
 
-
-		}
-	}
 		cout << pname << " failed to start or didn't activate" << endl;
 		Sleep(1500);
 		sFuncts.killTOS();

@@ -10,7 +10,7 @@
 #include "bootAnimation.h"
 #include "userFunctions.h"
 #include "debugConsole.h"
-#include "User.h"
+#include "User-Source\User.h"
 //dll .h files
 #include <Expansion.h>//this is a dll file
 //dll stuff
@@ -28,27 +28,29 @@ void systemFunctions::commandHandler(string usrIn) {
 	else if (!usrIn.compare("newUser")) {
 		usrIn = "";
 		cout << vars.lt << vars.pt << "Loading first run....";
-		vars.newUser = true;
+		User.logOff();
+		User.newUserVar = true;
 		User.firstRun();
-		//logs out the current user
-		uvars.actUsr = "";
-		uvars.actUsrPasswd = "";
+		User.logOn();
+
 	}
 
 	//debug stuff bellow_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 	else if (!usrIn.compare("debug")) {
 		usrIn = "";
 		if (!User.isDev()) {//if the user is NOT a developer run this
-			cout << vars.lt << vars.pt << "Welcome to Debug Mode. Your account does not appear to be a developer account. We are sending you to the log in screen...";
+			cout << vars.lt << vars.pt << "Welcome to Debug Mode. Your account does not appear to be a developer account. We are sending you to the log in screen..." << endl;
 			//logs out current user
 			cout << vars.lt << vars.pt << "Press any key to log out" << endl;
+			cin.get();
+			cin.get();
 			User.logOff();
 			sFuncts.clrscrn();
 			//sends you to the login page
 			User.logOn();
 		}
 		else {
-			cout << vars.lt << vars.pt << "Welcome to debug mode, " << uvars.actUsr << endl;
+			cout << vars.lt << vars.pt << "Welcome to debug mode, " << User.getActiveUser() << endl;
 			dvars.devModeEnabled = true;
 			while (dvars.devModeEnabled == true) {
 				cout << vars.lt << vars.pt << User.getActiveUser() << "@Debug~ ";

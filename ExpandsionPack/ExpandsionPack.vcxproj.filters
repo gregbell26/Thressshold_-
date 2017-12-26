@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Expansion.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Expansion.h" />
+    <ClInclude Include="External\TriHardStudios\_TheMatrix.h">
+      <Filter>External Comands</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="External Comands">
+      <UniqueIdentifier>{7ed2be66-b1c7-4beb-8658-5a621e0a2639}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -5,7 +5,6 @@
 #define pname "Tresshold_"
 //colors
 #define defaultStartup BACKGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY
-#define loginColors BACKGROUND_GREEN| FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY
 #define defaultMain BACKGROUND_GREEN | BACKGROUND_BLUE | FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY
 #define exitColors  FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY
 using namespace std;
@@ -19,8 +18,8 @@ public:
 	bool firstrun = true;
 	//Version Info change accrodingly.
 	int majorVer = 0;
-	int minorVer = 4;
-	char rev = 'A';
+	int minorVer = 6;
+	char rev = 'B';
 	bool beta = false;
 	bool newUser = false;
 	string sysID;
@@ -50,7 +49,7 @@ public:
 	bool devModeEnabled = false;
 	string devIn = "";
 };
-class uVariables {
+class uVariables { //YIPPE NADA MAS!!!
 public:
 	int usrSettings[5] = { 0,0,0,0,0 };
 	string actUsrPasswd;

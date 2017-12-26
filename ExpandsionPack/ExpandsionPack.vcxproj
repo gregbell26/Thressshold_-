@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Expansion.h" />
+    <ClInclude Include="External\TriHardStudios\_TheMatrix.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Expansion.cpp" />
