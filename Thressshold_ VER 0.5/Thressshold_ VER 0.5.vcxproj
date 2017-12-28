@@ -142,11 +142,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Activation-Source\Activation.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="User-Source\SystemFunctsUser.cpp" />
     <ClCompile Include="User-Source\User.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Activation-Source\Activation.h" />
     <ClInclude Include="bootAnimation.h" />
     <ClInclude Include="bootLogo-Source.h" />
     <ClInclude Include="clrscrn-Source.h" />

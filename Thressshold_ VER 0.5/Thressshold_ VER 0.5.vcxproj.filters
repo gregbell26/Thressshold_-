@@ -22,6 +22,9 @@
       <UniqueIdentifier>{083777c5-c2f0-41bc-824f-5af46a6b253d}</UniqueIdentifier>
       <Extensions>User.*</Extensions>
     </Filter>
+    <Filter Include="Activation">
+      <UniqueIdentifier>{95955203-2eaa-496a-aa35-3bce226623e9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -32,6 +35,9 @@
     </ClCompile>
     <ClCompile Include="User-Source\SystemFunctsUser.cpp">
       <Filter>User</Filter>
+    </ClCompile>
+    <ClCompile Include="Activation-Source\Activation.cpp">
+      <Filter>Activation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="User-Source\SystemFunctsUser.h">
       <Filter>User</Filter>
+    </ClInclude>
+    <ClInclude Include="Activation-Source\Activation.h">
+      <Filter>Activation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
 #include "./User.h"
 #include "./SystemFunctsUser.h"
-
+#include <tchar.h>
 using namespace Users;
 
 using namespace std;
@@ -60,6 +60,7 @@ int User::firstRun() {
 		sysFunctU.clrscrn();//clears screen
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), loginColors);//sets colors
 		sysFunctU.clrscrn();//clears screen
+		sysFunctU.drawGUI();
 
 
 						  //local varables
@@ -167,7 +168,7 @@ void User::logOn() {
 		//int av = 5;//locally defined variable for the max amount of users and passwords
 		bool loginS = false;
 		int loginA = 0;
-		bool userMatch, passMatch;
+		bool userMatch = false, passMatch = false;
 		ifstream fin;//file input 
 					 //ofstream fout;//fie output
 		string tempUsr;
@@ -278,7 +279,7 @@ void User::logOn() {
 		else if (loginA > 5) {
 			sysFunctU.shutdown();
 		}
-
+		SetCurrentDirectory(_T(".."));
 		//Sleep(500);//debug
 
 
@@ -306,6 +307,7 @@ bool Users::User::isAdmin() {
 	else
 		return false;
 }
+
 
 
 User::~User() {

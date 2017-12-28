@@ -8,6 +8,7 @@
 #include "variables.h"
 #include "systemFunctions.h"
 #include "User-Source\User.h"
+#include "Activation-Source\Activation.h"
 using namespace std;
 
 ofstream fout;
@@ -24,7 +25,16 @@ int tosVer() {
 	fout << "INFORMATION: " << pname << " " << vars.sysID << " " << vars.majorVer << "." << vars.minorVer << " rev " << vars.rev << endl;
 	return 0;
 }
+void activationChecker() {
+	if (TOSAct.checkIsActive()) {
+		fout << "INFORMATION: Activation data found." << endl;
+		fout << "INFORMATION: Product key valid." << endl;
+	}
 
+	else {
+		fout << "WARNING: Activation data not found or invalid." << endl;
+	}
+}
 void firstRunChecker() {
 
 	if (User.firstRunVar) {
@@ -56,9 +66,10 @@ void bootAnimation() {
 	cout << w << w << w;//start of loading screen
 	Sleep(100);
 	firstRunChecker();
+	activationChecker();
 	cout << w << w << w << w << w << w << w << w << w << w;
 	Sleep(100);
-	sFuncts.screenResFinder(); //for some weird reason this removes the scroll bar
+	sFuncts.screenResFinder(); 
 	cout << w << w << w << w << w << w;
 	Sleep(100);
 	tosVer();

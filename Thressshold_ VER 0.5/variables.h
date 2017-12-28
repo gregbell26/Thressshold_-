@@ -49,16 +49,16 @@ public:
 	bool devModeEnabled = false;
 	string devIn = "";
 };
-class uVariables { //YIPPE NADA MAS!!!
+/*class uVariables { //YIPPE NADA MAS!!!
 public:
 	int usrSettings[5] = { 0,0,0,0,0 };
 	string actUsrPasswd;
 	string actUsr;
 	string avaiableUsers[5] = { "","","","","" };
 	string avaiablePasswords[5] = { "","","","","" };
-};
+};*/
 static aVariables avar;
 static dVariables dvars;
 static sVariables vars;
-static uVariables uvars;
+//static uVariables uvars;
 

@@ -4,12 +4,15 @@
 #include <fstream>
 #include <windows.h>
 #include <conio.h>
+#include <filesystem>
+#include <tchar.h>
 #include "variables.h"
 #include "systemFunctions.h"
 #include "bootAnimation.h"
 #include "userFunctions.h"
 #include "debugConsole.h"
 #include "User-Source\User.h"
+#include "Activation-Source\Activation.h"
 //don't copy and paste bellow this line cause you know math.. Or becuase these are just source files that the main functions needs to see.
 //systemFunctions Source Fliles
 #include "commandHandler-Source.h"

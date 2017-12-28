@@ -41,6 +41,8 @@ namespace Users {
 		bool isDev();
 		bool isAdmin();
 
+		//std::string toString();//totally not an idea that I stole from java....
+
 		~User();
 	};
 

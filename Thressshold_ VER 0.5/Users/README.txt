@@ -1,0 +1,2 @@
+All the users in this folder are test users. They are only loaded when the program is launched from Visual Studio when the program is in debug mode. When Thresshold_ is run from 
+any other setting it will generate the needed files.

@@ -18,18 +18,30 @@ Possaiable fixes:
 */ 
 
 
+namespace fs = std::experimental::filesystem;
 
 int main(void) {
-	
+	//TCHAR resetDir[1024] = {};
 
 	//local vars
 	string usrIn;
 	//eof local vars
 
 	bootAnimation();
+	//string root = fs::current_path();
 
 	//vars.firstrun = true;s
 	//vars.ready = true;
+	sFuncts.clrscrn();
+	sFuncts.gui();
+	while (!TOSAct.checkIsActive())	{
+		TOSAct.setPKey();
+		cout << endl;
+
+	}
+	
+	//SetCurrentDirectory(_T(".."));
+	
 		if (User.firstRunVar) {
 
 			User.firstRun();
@@ -45,7 +57,7 @@ int main(void) {
 			sFuncts.clrscrn();
 			sFuncts.gui();
 			while (vars.sysActive) {
-				cout << vars.lt << vars.pt  << User.getActiveUser() <<  "@Thresshold_~";
+				cout << vars.lt << vars.pt  << User.getActiveUser() <<  "@Thresshold_" << fs::current_path()<<"/~";
 				cin >> usrIn;
 				cout << endl;
 				sFuncts.commandHandler(usrIn);
