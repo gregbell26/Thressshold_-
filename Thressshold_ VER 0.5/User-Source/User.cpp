@@ -293,7 +293,7 @@ void User::logOff() {
 }
 
 bool Users::User::isDev() {
-	if (userData[1] == 1) 
+	if (userData[0] == 1) 
 		return true;
 	
 
@@ -302,7 +302,7 @@ bool Users::User::isDev() {
 }
 
 bool Users::User::isAdmin() {
-	if (userData[2] == 1)
+	if (userData[1] == 1)
 		return true;
 	else
 		return false;
