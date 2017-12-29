@@ -17,9 +17,12 @@ public:
 	string excommands[5] = { "","","","","" };
 	bool firstrun = true;
 	//Version Info change accrodingly.
-	int majorVer = 0;
-	int minorVer = 6;
-	char rev = 'B';
+	//VER 0.6.5 REV B
+	const int MAJOR_VER = 0;
+	const int MINOR_VER = 6;
+	const int BUG_FIX = 5;
+	const char REV_CHAR = 'B';
+
 	bool beta = false;
 	bool newUser = false;
 	string sysID;
@@ -32,7 +35,7 @@ public:
 	//wstring curDir[] = { L"" };
 };
 
-class aVariables {//don't use until STUFF :)
+/*class aVariables {//don't use until STUFF :)
 public:
 	string coreKey = "TOS-WM2016-WMCO";
 	string fullKey = "TOS-LW2016-LWFL";
@@ -42,7 +45,7 @@ public:
 	bool isActive = false;
 	string pKey = "stuff";
 
-};
+};*/
 
 class dVariables {
 public:
@@ -57,7 +60,7 @@ public:
 	string avaiableUsers[5] = { "","","","","" };
 	string avaiablePasswords[5] = { "","","","","" };
 };*/
-static aVariables avar;
+//static aVariables avar;
 static dVariables dvars;
 static sVariables vars;
 //static uVariables uvars;

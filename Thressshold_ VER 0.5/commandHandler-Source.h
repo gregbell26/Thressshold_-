@@ -87,7 +87,7 @@ void systemFunctions::commandHandler(string usrIn) {
 		usrIn = "";
 	}
 	else if (!usrIn.compare("ver")) {
-		cout << vars.lt << vars.pt << pname << " " << vars.sysID << " " << vars.majorVer << "." << vars.minorVer << " rev " << vars.rev << endl;
+		cout << vars.lt << vars.pt << pname << " Release " << vars.MAJOR_VER << "." << vars.MINOR_VER << "." << vars.BUG_FIX << " rev " << vars.REV_CHAR << endl;
 		cout << vars.lt << vars.pt << "Licensed to " << User.getActiveUser() << " with product key " << TOSAct.getPKey() << endl;
 		cout << vars.lt << vars.pt;
 		excom.expanVer();

@@ -8,7 +8,7 @@ using namespace std;
 
 namespace ExpansionPack {
 	void excommands::expanVer() {
-		cout << "Thresshold_ Expansion Pack Version 0.0.0.0.0.0.1" << endl;
+		cout << "Thresshold_ Expansion Pack Version 0.1.3" << endl;
 	}
 
 	bool excommands::commandHandler(string userInput) {

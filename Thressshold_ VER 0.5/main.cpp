@@ -25,6 +25,7 @@ int main(void) {
 
 	//local vars
 	string usrIn;
+	//int linesFilled =0;
 	//eof local vars
 
 	bootAnimation();
@@ -56,10 +57,14 @@ int main(void) {
 			sFuncts.clrscrn();
 			sFuncts.clrscrn();
 			sFuncts.gui();
+			sFuncts.screenResFinder();
 			while (vars.sysActive) {
 				cout << vars.lt << vars.pt  << User.getActiveUser() <<  "@Thresshold_" << fs::current_path()<<"/~";
+				//linesFilled += 3;
 				cin >> usrIn;
 				cout << endl;
+				/*if (linesFilled >= vars.cols - 3)
+					sFuncts.clrscrn();*/
 				sFuncts.commandHandler(usrIn);
 				usrIn = "";
 			}

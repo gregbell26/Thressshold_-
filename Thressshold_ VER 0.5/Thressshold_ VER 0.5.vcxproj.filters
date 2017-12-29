@@ -24,6 +24,7 @@
     </Filter>
     <Filter Include="Activation">
       <UniqueIdentifier>{95955203-2eaa-496a-aa35-3bce226623e9}</UniqueIdentifier>
+      <Extensions>Activation.*</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>

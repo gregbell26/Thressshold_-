@@ -6,10 +6,10 @@ SystemFunctsUser::SystemFunctsUser(){
 	cols = 0;
 	rows = 0;
 
-	//VER 5.0.3 REV B
-	MAJOR_VER = 5;
-	MINOR_VER = 0;
-	BUG_FIX = 3;
+	//VER 0.6.5 REV B
+	MAJOR_VER = 0;
+	MINOR_VER = 6;
+	BUG_FIX = 5;
 	REV_CHAR = 'B';
 
 }

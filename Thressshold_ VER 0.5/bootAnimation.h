@@ -13,7 +13,7 @@ using namespace std;
 
 ofstream fout;
 int tosVer() {
-	if (vars.majorVer < 1) {
+	if (vars.MAJOR_VER < 1) {
 		vars.beta = true;
 		if (vars.beta == true) {
 			vars.sysID = "Beta Developer Release";
@@ -22,7 +22,7 @@ int tosVer() {
 	else {
 		vars.sysID = "Thresshold_ Public Release";
 	}
-	fout << "INFORMATION: " << pname << " " << vars.sysID << " " << vars.majorVer << "." << vars.minorVer << " rev " << vars.rev << endl;
+	fout << "INFORMATION: " << pname << " Release " << vars.MAJOR_VER << "." << vars.MINOR_VER << "." << vars.BUG_FIX << " rev " << vars.REV_CHAR << endl;
 	return 0;
 }
 void activationChecker() {

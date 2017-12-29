@@ -61,7 +61,7 @@ void Actiavtion::TOSActivation::setPKey() {
 	ofstream fout;
 	if (!fs::exists("SYS")) {
 		fs::create_directory("SYS");
-		cout << "CREATED ACTIVATION FOLDER" << endl;
+		//cout << "CREATED ACTIVATION FOLDER" << endl;
 	}//Creating the subfolder for system stuff.. if it doesn't exist
 	fs::current_path("SYS");//sets dir
 	fout.open("TOS-ACT.ths");

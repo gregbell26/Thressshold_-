@@ -26,7 +26,7 @@ namespace _TheMatrix {
 		std::cout << "Welcome to the Matrix" << std::endl;
 		Sleep(1000);
 		int i =0;
-		while (i < 100) {
+		while (i < 1500) {
 			cout << "\t";
 			// Output a random row of characters
 			for (int i = 0; i < 80; ++i)

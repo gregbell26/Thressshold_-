@@ -58,7 +58,7 @@ int debugConsole(){
 		cout << endl;
 		cout << vars.lt << vars.pt << "Load Complete." << endl;
 		cout << vars.lt << vars.pt << "Listing all varables in activation: (note: some of the variables are private so they will not be displayed without a getter method)" << endl;
-		cout << vars.lt << vars.pt << "Active pruduct key (TOSAct.pKey): " << TOSAct.getPKey() << endl;
+		cout << vars.lt << vars.pt << "Active product key (TOSAct.pKey): " << TOSAct.getPKey() << endl;
 		cout << vars.lt << vars.pt << "Activated (TOSAct.isActive): " << TOSAct.checkIsActive() << endl;
 		cout << vars.lt << vars.pt << "Developer mode avaiable (TOSAct.devModeAviable): " << TOSAct.getDevModeAviable() << endl;
 		cout << vars.lt << vars.pt << "Listing variables Done." << endl;

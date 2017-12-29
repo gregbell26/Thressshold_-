@@ -72,10 +72,10 @@ int User::firstRun() {
 		string temp;
 		string usrin;
 		//end of local var defination
-		if (firstRunVar) {
+		if (firstRunVar) 
 			CreateDirectory(L"Users", NULL);//Creating the subfolder for user stuff
-			SetCurrentDirectory(L"Users");//seting the current dir
-		}		  //opening user info file
+		SetCurrentDirectory(L"Users");//seting the current dir
+				  //opening user info file
 		fout.open("Users.ths", ios::app /*| ios::binary*/);//.ths will be file extendsion for this program Also ios app places the writer at the end of the file. 
 		while (firstRunVar || newUserVar) {
 			//fill_n(uvars.usrSettings, 5, 0);//clears the user setting array
@@ -97,6 +97,7 @@ int User::firstRun() {
 				ch = _getch();
 			}
 			cout << endl;
+			int attemps = 0;
 			while (!passMatch) {
 				cout << '|' << char(219) << " Please enter your password again: ";
 				ch = _getch();
@@ -110,9 +111,15 @@ int User::firstRun() {
 					passMatch = true;
 				}
 				else {
+					attemps += 1;
 					cout << '|' << char(219) << " Your password did not match. Lets try again" << endl;
 				}
 				usrin = "";
+				if (attemps == 5) {
+					
+					sysFunctU.shutdown();
+					break;
+				}
 			}
 			cout << '|' << char(219) << " Passwords match. Writing to file.." << endl;
 			fout << temp;
@@ -209,7 +216,7 @@ void User::logOn() {
 			}
 			cout << endl;
 			cout << '|' << char(219) << "Checking User Info... ";
-			for (int i = 0; i < aviUsers.size(); i++) {
+			for (unsigned int i = 0; i < aviUsers.size(); i++) {
 				if (!aviUsers[i].compare(usrIn)) {
 					userMatch = true;
 					break;
@@ -220,7 +227,7 @@ void User::logOn() {
 			}
 			if (userMatch) {
 				cout << " | User Name - Valid ";
-				for (int i = 0; i < aviPasswords.size(); i++) {
+				for (unsigned int i = 0; i < aviPasswords.size(); i++) {
 					if (!aviPasswords[i].compare(temp)) {
 						passMatch = true;
 						break;

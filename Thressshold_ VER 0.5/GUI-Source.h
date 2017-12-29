@@ -53,7 +53,7 @@ int systemFunctions::gui() { // this is 100% my code!!! It works to a certain ex
 	SetConsoleCursorPosition(hStdOut, set2);
 	//Ver Info
 	cout << "\t\t\t\t\t"; //setting location
-	cout << pname << " Release " << vars.majorVer << "." << vars.minorVer << " rev " << vars.rev;
+	cout << pname << " Release " << vars.MAJOR_VER << "." << vars.MINOR_VER << "." << vars.BUG_FIX << " rev " << vars.REV_CHAR;
 	SetConsoleCursorPosition(hStdOut, set4);
 	cout << (char)219 << (char)219;
 	//start of user input
