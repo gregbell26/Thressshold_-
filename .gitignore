@@ -259,3 +259,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+Thresshold/ExpandsionPack.dll
+Thresshold/postInsall.bat
+Thresshold/Thresshold  0.6.5.exe
