@@ -70,6 +70,7 @@ int main(void) {
 			}
 
 		cout << pname << " failed to start or didn't activate" << endl;
+		
 		Sleep(1500);
 		sFuncts.killTOS();
 

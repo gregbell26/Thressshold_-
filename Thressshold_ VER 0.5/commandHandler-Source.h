@@ -13,10 +13,12 @@
 #include "debugConsole.h"
 #include "User-Source\User.h"
 #include "Activation-Source\Activation.h"
+#include "ExProgram-Source\ExProgram.h"
 //dll .h files
 #include <Expansion.h>//this is a dll file
 //dll stuff
-ExpansionPack::excommands excom;//this puts a namespace and a class name to a ne
+ExpansionPack::excommands excom;//this puts a namespace and a class name to a simple value.
+
 //there are many reasons that I would do the following but the main one is that these don't need to be used anywhere else
 static int localUsrIn1[2];//int input currenly has 2 slots
 
@@ -29,40 +31,52 @@ void systemFunctions::commandHandler(string usrIn) {
 	}
 
 	else if (!usrIn.compare("newUser")) {
-		usrIn = "";
-		cout << vars.lt << vars.pt << "Loading first run....";
-		User.logOff();
-		User.newUserVar = true;
-		User.firstRun();
-		User.logOn();
+		if (User.isAdmin()) {
+			usrIn = "";
+			cout << vars.lt << vars.pt << "Loading first run....";
+			User.logOff();
+			User.newUserVar = true;
+			User.firstRun();
+			User.logOn();
+		}
+		else {
+			cout << vars.lt << vars.pt << "Your account isn't admin. Please sign in with an admin account to create a new user." << endl;
+		}
+
 
 	}
 
 	//debug stuff bellow_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 	else if (!usrIn.compare("debug")) {
 		usrIn = "";
-		if (!User.isDev() || !TOSAct.getDevModeAviable()) {//if the user is NOT a developer run this
-			cout << vars.lt << vars.pt << "Welcome to Debug Mode. Your account does not appear to be a developer account. We are sending you to the log in screen..." << endl;
-			//logs out current user
-			cout << vars.lt << vars.pt << "Press any key to log out" << endl;
-			cin.get();
-			cin.get();
-			User.logOff();
-			sFuncts.clrscrn();
-			//sends you to the login page
-			User.logOn();
+		if (TOSAct.getDevModeAviable()) {
+			if (!User.isDev()) {//if the user is NOT a developer run this
+				cout << vars.lt << vars.pt << "Welcome to Debug Mode. Your account does not appear to be a developer account. We are sending you to the log in screen..." << endl;
+				//logs out current user
+				cout << vars.lt << vars.pt << "Press any key to log out" << endl;
+				cin.get();
+				cin.get();
+				User.logOff();
+				sFuncts.clrscrn();
+				//sends you to the login page
+				User.logOn();
+			}
+			else {
+				cout << vars.lt << vars.pt << "Welcome to debug mode, " << User.getActiveUser() << endl;
+				dvars.devModeEnabled = true;
+				while (dvars.devModeEnabled == true) {
+					cout << vars.lt << vars.pt << User.getActiveUser() << "@Debug~ ";
+					cin >> dvars.devIn;
+					cout << endl;
+					debugConsole();
+					dvars.devIn = "";
+
+				}
+			}
 		}
 		else {
-			cout << vars.lt << vars.pt << "Welcome to debug mode, " << User.getActiveUser() << endl;
-			dvars.devModeEnabled = true;
-			while (dvars.devModeEnabled == true) {
-				cout << vars.lt << vars.pt << User.getActiveUser() << "@Debug~ ";
-				cin >> dvars.devIn;
-				cout << endl;
-				debugConsole();
-				dvars.devIn = "";
+			cout << vars.lt << vars.pt << "Debug mode is not avivable in this version of Thresshold_" << endl;
 
-			}
 		}
 	}
 
@@ -145,13 +159,31 @@ void systemFunctions::commandHandler(string usrIn) {
 			}
 			catch (...) {
 				cout << vars.lt << vars.pt << fileName << " ................. " << "size ..." << endl;
+				
 			}
 		}
 	}
-	
 
-	else if (!excom.commandHandler(usrIn)) {
-		cout << vars.lt << vars.pt << "That does not appear to be a valid command. Please check you spelling." << endl;
+	else if (!usrIn.compare("help")) {
+		cout << vars.lt << vars.pt << "Help has not been implemented yet" << endl;
+
+	}
+	
+	else if (!usrIn.compare("exProgram")) {
+		if (User.isAdmin()) {
+			cin >> localUsrIn2[0];
+			exP.setProgramName(localUsrIn2[0]);
+			if (exP.locate()) {
+				cout << vars.lt << vars.pt << "Program found" << endl;
+				exP.launch();
+
+			}
+
+
+		}
+	}
+	else if (!excom.commandHandler(usrIn, TOSAct.getExpandPackAviable())) {
+		cout << vars.lt << vars.pt << "That does not appear to be a valid command. Please check you spelling. Or type \'help' for help" << endl;
 	}
 
 

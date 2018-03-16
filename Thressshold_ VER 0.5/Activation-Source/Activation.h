@@ -17,6 +17,7 @@ namespace Actiavtion {
 		
 		bool devModeAviable;
 		bool isActive;
+		bool expandPackAviable;
 		std::string pKey;
 
 	public:
@@ -25,6 +26,8 @@ namespace Actiavtion {
 		bool checkIsActive();
 
 		bool getDevModeAviable();
+
+		bool getExpandPackAviable();
 
 		std::string getPKey();
 

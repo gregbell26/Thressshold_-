@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -26,6 +22,13 @@
       <UniqueIdentifier>{95955203-2eaa-496a-aa35-3bce226623e9}</UniqueIdentifier>
       <Extensions>Activation.*</Extensions>
     </Filter>
+    <Filter Include="External Programs">
+      <UniqueIdentifier>{6637f5e9-4887-4438-b43b-5881055adb64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -39,6 +42,9 @@
     </ClCompile>
     <ClCompile Include="Activation-Source\Activation.cpp">
       <Filter>Activation</Filter>
+    </ClCompile>
+    <ClCompile Include="ExProgram-Source\ExProgram.cpp">
+      <Filter>External Programs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +101,9 @@
     </ClInclude>
     <ClInclude Include="Activation-Source\Activation.h">
       <Filter>Activation</Filter>
+    </ClInclude>
+    <ClInclude Include="ExProgram-Source\ExProgram.h">
+      <Filter>External Programs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -20,13 +20,20 @@ bool Actiavtion::TOSActivation::checkIsActive() {
 	//fin >> pKey;
 	if (fin.good()) {
 		fin >> pKey;
-		if (!pKey.compare(coreKey) || !pKey.compare(fullKey)) {
+		if (pKey.compare(fullKey)) {
+			isActive = true;
+			expandPackAviable = true;
+			SetCurrentDirectory(_T(".."));
+		}
+		else if (pKey.compare(devKey)) {
+			devModeAviable = true;
+			expandPackAviable = true;
 			isActive = true;
 			SetCurrentDirectory(_T(".."));
 		}
-		else if (!pKey.compare(devKey)) {
-			devModeAviable = true;
+		else if (pKey.compare(coreKey)) {
 			isActive = true;
+			expandPackAviable = false;
 			SetCurrentDirectory(_T(".."));
 		}
 		
@@ -52,6 +59,12 @@ bool Actiavtion::TOSActivation::checkIsActive() {
 bool Actiavtion::TOSActivation::getDevModeAviable(){
 	return devModeAviable;
 }
+
+bool Actiavtion::TOSActivation::getExpandPackAviable() {
+	return expandPackAviable;
+
+}
+
 
 std::string Actiavtion::TOSActivation::getPKey() {
 	return pKey;

@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Activation-Source\Activation.cpp" />
+    <ClCompile Include="ExProgram-Source\ExProgram.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="User-Source\SystemFunctsUser.cpp" />
     <ClCompile Include="User-Source\User.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="color-Source.h" />
     <ClInclude Include="commandHandler-Source.h" />
     <ClInclude Include="debugConsole.h" />
+    <ClInclude Include="ExProgram-Source\ExProgram.h" />
     <ClInclude Include="GUI-Source.h" />
     <ClInclude Include="INCLUDE.h" />
     <ClInclude Include="killTOS-Source.h" />
